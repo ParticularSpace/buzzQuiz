@@ -16,6 +16,14 @@ body {
   padding: 10px; 
 }
 
+#contentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Ensures content is left-aligned within the container */
+  max-width: 600px; /* Adjust based on your content's width */
+  width: 100%;
+}
+
 #titleContainer {
   display: flex;
   flex-direction: column;
