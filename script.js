@@ -48,6 +48,24 @@ document.getElementById('backButton').addEventListener('click', function() {
     }
 });
 
+document.getElementById('retakeQuiz').addEventListener('click', function() {
+    // Reset quiz state
+    currentQuestionIndex = 0;
+    for (const key in results) {
+        results[key] = 0; // Reset results for each category
+    }
+    
+    // Hide result container and show the first question again
+    document.getElementById('resultContainer').classList.add('hidden');
+    document.getElementById('quizContainer').classList.remove('hidden');
+    showQuestion(); // Call showQuestion to display the first question
+    
+    // Reset any previously selected answers if needed
+    // This step depends on your implementation. If answers are being tracked outside
+    // the `results` object or you wish to clear selected radio buttons, handle that here.
+});
+
+
 function showQuestion(isBack = false) {
     const question = questions[currentQuestionIndex];
     const questionContainer = document.getElementById('questionContainer');
@@ -69,10 +87,13 @@ function showQuestion(isBack = false) {
 
 function showResults() {
     document.getElementById('quizContainer').classList.add('hidden');
-
-    const resultContainer = document.getElementById('resultContainer');
+    const resultText = document.getElementById('resultText');
     const highestScoreCategory = Object.keys(results).reduce((a, b) => results[a] > results[b] ? a : b);
-
-    resultContainer.innerHTML = `<p>We recommend you check out the Seattle Symphony's ${highestScoreCategory} shows!</p>`;
-    resultContainer.classList.remove('hidden');
+    
+    resultText.innerHTML = `We recommend you check out the Seattle Symphony's ${highestScoreCategory} shows!`;
+    document.getElementById('resultContainer').classList.remove('hidden');
 }
+
+
+
+

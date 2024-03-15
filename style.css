@@ -105,7 +105,7 @@ body {
 
   .button, .nextButton {
     /* Keeps buttons full-width for easier interaction, with adequate padding */
-    width: calc(100% - 20px); /* Adjusts width to account for body padding, ensuring buttons don't extend beyond the screen */
+    width: calc(100% - 50px); /* Adjusts width to account for body padding, ensuring buttons don't extend beyond the screen */
     padding: 12px; /* Adjusted padding for a balanced look */
     font-size: 16px; /* Increases font size for better readability */
     margin: 10px 0; /* Adjusts margin around buttons for spacing */
