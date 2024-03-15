@@ -41,21 +41,30 @@ document.getElementById('nextButton').addEventListener('click', function() {
     }
 });
 
-function showQuestion() {
+document.getElementById('backButton').addEventListener('click', function() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        showQuestion(true);
+    }
+});
+
+function showQuestion(isBack = false) {
     const question = questions[currentQuestionIndex];
     const questionContainer = document.getElementById('questionContainer');
     questionContainer.innerHTML = `<p>${question.question}</p>`;
 
     for (const [answer, category] of Object.entries(question.answers)) {
+        const isChecked = results[category] > 0 && isBack;
         questionContainer.innerHTML += `
             <label>
-                <input type="radio" name="answer" value="${category}" />
+                <input type="radio" name="answer" value="${category}" ${isChecked ? 'checked' : ''}/>
                 ${answer}
             </label><br/>
         `;
     }
 
     document.getElementById('nextButton').classList.remove('hidden');
+    document.getElementById('backButton').classList[currentQuestionIndex > 0 ? 'remove' : 'add']('hidden');
 }
 
 function showResults() {

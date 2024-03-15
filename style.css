@@ -1,66 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #424242;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #424242;
+  min-height: 100vh;
+  padding: 10px; 
+}
+
+#titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Ensures left alignment */
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: left; /* Aligns text to the left */
+}
+
+#seattle {
+  color: #ed098f;
+}
+
+#symphony {
+  color: black;
+  font-weight: bold;
+}
+
+.button, .nextButton {
+  background-color: #ed098f;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: background-color 0.3s ease; 
+}
+
+.button:hover, .nextButton:hover {
+  background-color: #d80e7f; 
+}
+
+.hidden {
+  display: none;
+}
+
+#questionContainer p {
+  margin-bottom: 10px; /* Adjust this value to control spacing below each question */
+}
+
+#questionContainer {
+  width: 600px; 
+  max-width: 100%;
+  margin: 20px auto; 
+  font-size: 18px;
+  color: #424242;
+}
+
+#questionContainer label {
+  cursor: pointer;
+  display: block; /* Ensures each answer is on a new line */
+  margin: 10px 0;
+  padding-left: 20px; /* Adds some padding for better readability */
+  position: relative;
+}
+
+#questionContainer input[type="radio"] {
+  margin-right: 10px;
+  position: absolute;
+  left: 0;
+}
+
+@media (max-width: 600px) {
+  body, #questionContainer, .button, .nextButton, #titleContainer {
+    width: 100%; /* This ensures elements take full width of the screen */
+    box-sizing: border-box; /* Makes sure padding and border are included in the element's total width and height */
   }
-  
-  #titleContainer {
-    display: flex;
-    flex-direction: column;
-    font-size: 36px;
-    margin-bottom: 20px;
+
+  body {
+    padding: 10px; /* Maintains padding around the body for a little space around the edges */
   }
-  
-  #seattle {
-    color: #ed098f;
-  }
-  
-  #symphony {
-    color: black;
-    font-weight: bold;
-  }
-  
-  .button, .nextButton {
-    background-color: #ed098f;
-    color: #ffffff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    margin: 10px 0;
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-  }
-  
-  .button:hover, .nextButton:hover {
-    background-color: #d80e7f; /* Slightly darker pink for hover */
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  /* New Styles for Questions and Options */
+
   #questionContainer {
-    margin: 20px 0;
-    font-size: 18px;
-    color: #424242; /* Question text color */
+    /* Removes specific width adjustment to allow natural content fit */
+    padding: 0 10px; /* Adjusts padding to better fit content within the screen size */
+    margin: 20px 0; /* Ensures there's space above and below the container */
+    font-size: 16px; /* Adjusts font size for better readability on small screens */
   }
-  
-  #questionContainer label {
-    cursor: pointer;
-    display: block; /* Make labels block to align options vertically */
-    margin: 10px 0;
+
+  .button, .nextButton {
+    /* Keeps buttons full-width for easier interaction, with adequate padding */
+    width: calc(100% - 20px); /* Adjusts width to account for body padding, ensuring buttons don't extend beyond the screen */
+    padding: 12px; /* Adjusted padding for a balanced look */
+    font-size: 16px; /* Increases font size for better readability */
+    margin: 10px 0; /* Adjusts margin around buttons for spacing */
   }
-  
-  #questionContainer input[type="radio"] {
-    margin-right: 10px;
+
+  #titleContainer {
+    text-align: left; /* Ensures text within the container is left-aligned */
+    padding: 0; /* Adjusts or removes padding to align content properly */
+    margin-left: 10px; /* Ensures alignment with body content */
   }
-  
-  #questionContainer label:hover {
-    color: #ed098f; /* Highlight option text on hover */
-  }
-  
+}
+
+
+
+
